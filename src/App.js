@@ -11,7 +11,8 @@ class App extends Component {
     coffee_shops: [],
     selected_shop: null,
     current_user: null,
-    logging_in: false
+    logging_in: false,
+    favorite: []
   }
   
   componentDidMount(){
@@ -24,6 +25,15 @@ class App extends Component {
     
     loginClick = () =>{
       this.setState({logging_in: true})
+    }
+    addToFavorites =(shop)=>{
+      if(this.state.favorite.includes(shop)){
+        alert("You already added this shop to your favorites")
+      }else{
+        let newShop = [...this.state.favorite, shop]
+        this.setState({favorite : newShop})
+      }
+     
     }
     
     loginSubmit = (user) =>{
@@ -50,7 +60,7 @@ class App extends Component {
     NotAStarBucks
     {this.state.logging_in ? <LoginForm loginSubmit={this.loginSubmit}/> : <NavBar user={this.state.current_user} loginClick={this.loginClick}/>}
     {this.state.selected_shop !== null ?
-    <CoffeeCard coffeeCard = {this.state.selected_shop} goBack = {this.resetList}/>: <CoffeeList coffee_shops={this.state.coffee_shops} selectShop={this.selectShop}/>}
+    <CoffeeCard coffeeCard = {this.state.selected_shop} goBack = {this.resetList} addToFavorites={this.addToFavorites}/>: <CoffeeList coffee_shops={this.state.coffee_shops} selectShop={this.selectShop}/>}
     </div>
   
   )
