@@ -58,7 +58,7 @@ class App extends Component {
     <a className="active item">
     </a>
     NotAStarBucks
-    {this.state.logging_in ? <LoginForm loginSubmit={this.loginSubmit}/> : <NavBar user={this.state.current_user} loginClick={this.loginClick}/>}
+    {this.state.logging_in ===true ? <LoginForm loginSubmit={this.loginSubmit}/> : <NavBar user={this.state.current_user} loginClick={this.loginClick}/>}
     {this.state.selected_shop !== null ?
     <CoffeeCard coffeeCard = {this.state.selected_shop} goBack = {this.resetList} addToFavorites={this.addToFavorites}/>: <CoffeeList coffee_shops={this.state.coffee_shops} selectShop={this.selectShop}/>}
     </div>
