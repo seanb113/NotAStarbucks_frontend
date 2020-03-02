@@ -10,7 +10,7 @@ class CoffeeCard extends React.Component {
               Rating: {this.props.coffeeCard.rating}<br/>
               Location: {this.props.coffeeCard.location}<br/>
 
-              <button onClick={ this.props.goBack}>Go Back</button><br/>
+              {/* <button onClick={ this.props.goBack}>Go Back</button><br/> */}
               <button onClick={()=>this.props.addToFavorites(this.props.coffeeCard)}>Add to your favorites </button>
               
             </div>
