@@ -5,8 +5,10 @@ import CoffeeCard from "./components/CoffeeCard"
 import LoginForm from "./components/LoginForm"
 import UserProfile from "./components/UserProfile"
 import GoBackButton from "./components/GoBackButton"
+import SortControl from "./components/SortControl"
 import './App.css';
 
+// console.log(process.env.REACT_APP_GOOGLEMAPS_API_KEY)
 
 class App extends Component {
   state = {
@@ -17,7 +19,8 @@ class App extends Component {
     loggingIn: false,
     onProfilePage: false,
     favorites: [],
-    searchText: ""
+    searchText: "",
+    sort: "price"
   }
   
   componentDidMount(){
@@ -57,6 +60,19 @@ class App extends Component {
   onSearch = (event) => {
     this.setState({searchText: event.target.value})
   }
+
+handleSort = (value) => {
+  debugger
+    this.setState({sort: value})
+  }
+  getSorted(){
+    let value = this.state.sort
+    let withSort = this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? 1 : -1)
+    // this.setState({
+    //   displayedShops: withSort
+    // })
+    return withSort
+  }
   
   resetList = () =>{
     let allShops = this.state.coffeeShops
@@ -83,13 +99,16 @@ class App extends Component {
 
   render(){
     let favorites = this.state.favorties
-    let searchedShops = this.state.displayedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText))
+
+    let sortedShops = this.getSorted(this.state.sort)
+    let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText))
   return (
     <div className="ui top attached tabular menu">
     <a className="active item">
     </a>
     NotAStarbucks
     {this.state.loggingIn === true ? <LoginForm loginSubmit={this.loginSubmit}/> : <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>}
+    <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>
     {this.state.onProfilePage === true ? <UserProfile user = {this.state.currentUser} display = {this.state.displayedShops} favorites = {this.state.favorites}/> : null }
     {this.state.selectedShop !== null ? <CoffeeCard coffeeCard = {this.state.selectedShop} goBack = {this.resetList} addToFavorites={this.addToFavorites}/>: <CoffeeList coffee_shops={searchedShops} selectShop={this.selectShop} goToProfile={this.goToProfile}/>}
     {this.state.onProfilePage || this.state.selectedShop!== null ? <GoBackButton goBack = {this.resetList}/> : null}
