@@ -6,6 +6,8 @@ import LoginForm from "./components/LoginForm"
 import UserProfile from "./components/UserProfile"
 import GoBackButton from "./components/GoBackButton"
 import SortControl from "./components/SortControl"
+import About from "./components/About"
+import {Route} from 'react-router-dom'
 import './App.css';
 
 // console.log(process.env.REACT_APP_GOOGLEMAPS_API_KEY)
@@ -21,6 +23,7 @@ class App extends Component {
     favorites: [],
     searchText: "",
     sort: "price"
+    // sortT: "rating"
   }
   
   componentDidMount(){
@@ -62,16 +65,19 @@ class App extends Component {
   }
 
 handleSort = (value) => {
-  debugger
-    this.setState({sort: value})
+    value === "Price"
+    ?
+    this.setState({sort: "price"})
+    :
+    this.setState({sort: "rating"})
   }
   getSorted(){
+    // debugger
     let value = this.state.sort
-    let withSort = this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? 1 : -1)
+    return this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? 1 : -1)
     // this.setState({
     //   displayedShops: withSort
     // })
-    return withSort
   }
   
   resetList = () =>{
@@ -107,11 +113,14 @@ handleSort = (value) => {
     <a className="active item">
     </a>
     NotAStarbucks
+   
     {this.state.loggingIn === true ? <LoginForm loginSubmit={this.loginSubmit}/> : <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>}
     <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>
     {this.state.onProfilePage === true ? <UserProfile user = {this.state.currentUser} display = {this.state.displayedShops} favorites = {this.state.favorites}/> : null }
     {this.state.selectedShop !== null ? <CoffeeCard coffeeCard = {this.state.selectedShop} goBack = {this.resetList} addToFavorites={this.addToFavorites}/>: <CoffeeList coffee_shops={searchedShops} selectShop={this.selectShop} goToProfile={this.goToProfile}/>}
     {this.state.onProfilePage || this.state.selectedShop!== null ? <GoBackButton goBack = {this.resetList}/> : null}
+   
+    <Route exact path="/" compnonent={About}/> 
     </div>
   
   )
