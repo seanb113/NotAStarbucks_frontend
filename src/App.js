@@ -10,7 +10,7 @@ import About from "./components/About"
 import {Route} from 'react-router-dom'
 import './App.css';
 
-// console.log(process.env.REACT_APP_GOOGLEMAPS_API_KEY)
+
 
 class App extends Component {
   state = {
