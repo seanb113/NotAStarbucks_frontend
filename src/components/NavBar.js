@@ -4,10 +4,10 @@ import {Button} from 'semantic-ui-react'
 
 const NavBar = (props) => {
 return(
-    <div title="ui input" color="ui brown"> {props.user ? props.user : <button onClick={props.loginClick}>Log In</button>, "Search By Name"}
+    <div id={"sortLabel"} className="ui basic big horizontal label"> 
         <input className="form-control" placeholder="Search by name..." onChange={props.onSearch}/>
         {/* <Button color="red">Submit</Button> */}
-        <button className="ui red button">Submit</button>
+        <button className="ui yellow button">Submit</button>
         {/* <button onClick={props.loginClick}>Log In</button> */}
     </div>
 )

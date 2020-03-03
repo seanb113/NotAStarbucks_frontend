@@ -4,6 +4,7 @@ import CoffeeList from './containers/CoffeeList'
 import CoffeeCard from "./components/CoffeeCard"
 import LoginForm from "./components/LoginForm"
 import UserProfile from "./components/UserProfile"
+import TitleBar from "./components/TitleBar"
 // import GoBackButton from "./components/GoBackButton"
 import SortControl from "./components/SortControl"
 import About from "./components/About"
@@ -108,10 +109,11 @@ handleSort = (value) => {
     let favorites = this.state.favorties
 
     let sortedShops = this.getSorted(this.state.sort)
-    let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText))
+    let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
     <div className="App">
-    NotAStarbucks
+      <TitleBar  />
+   
     {this.state.currentUser && !this.state.selectedShop ? <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
     {this.state.currentUser && !this.state.selectedShop ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}
             
