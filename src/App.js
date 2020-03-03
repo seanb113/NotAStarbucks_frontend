@@ -54,9 +54,10 @@ class App extends Component {
   }
     
   loginSubmit = (user) =>{
+    let username = user.name
     this.setState({
       loggingIn: false,
-      currentUser: user
+      currentUser: username
     })
   }
 
