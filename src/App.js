@@ -128,7 +128,7 @@ handleSort = (value) => {
             }/>
             <Route exact path="/" render={() => <Redirect to="/login" />} />
             <Route exact path="/profile" render={() => {
-              return this.state.currentUser ? <UserProfile user={this.state.currentUser} display = {this.state.favorites} goBack={this.resetList}/> :
+              return this.state.currentUser ? <UserProfile user={this.state.currentUser} display = {this.state.favorites} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
                 <Redirect to="/login"/>
             }} />
             <Route exact path="/login" render={() => {

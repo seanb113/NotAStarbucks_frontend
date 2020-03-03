@@ -14,5 +14,7 @@ const SortControl = (props) => {
             >Rating</button>
         </div>
     )
-}
+  }
+
+
 export default SortControl

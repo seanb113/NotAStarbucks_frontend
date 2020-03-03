@@ -6,7 +6,7 @@ const UserProfile  = props => {
         return(
             <div>Here are {props.user}'s favorite coffee shops:
             {props.display.map(shop=>
-                <Coffee coffee={shop}/>
+                <Coffee coffee={shop} selectShop={props.selectShop}/>
             )}
            <Link to="/coffeeshops">
           <button onClick={props.goBack}>See all coffee shops in DC</button>
