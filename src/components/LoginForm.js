@@ -1,7 +1,8 @@
 import React from "react"
 class LoginForm extends React.Component {
     state = {
-        value: ""
+        name: "",
+        password: ""
     }
     render(){
      
@@ -10,8 +11,12 @@ class LoginForm extends React.Component {
 
             <form onSubmit={()=>this.props.loginSubmit(this.state.value)}>
             <label>Username:
-            <input type="text" value={this.state.value} onChange={(event)=>this.setState({value: event.target.value})}/>
+            <input type="text" value={this.state.name} onChange={(event)=>this.setState({value: event.target.value})}/>
             </label>
+            <label>Password:
+            <input type="password" value={this.state.password} onChange={(event)=>this.setState({value: event.target.value})}/>
+            </label>
+
             <input type="submit" value="submit" />
             </form>
 
