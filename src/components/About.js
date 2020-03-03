@@ -2,7 +2,9 @@ import React from 'react'
 
 const About = (props) => {
     return(
-        <div>App About Page</div>
+        <div>
+        <h1>App Ablksjdfakjfj asfkljagadvnclskdhf;aghrdlkfgjlknclskndgout Page</h1>
+        </div>
     )
 }
 
