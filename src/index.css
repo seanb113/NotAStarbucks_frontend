@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+
 }
 
 code {
@@ -13,7 +15,25 @@ code {
 }
 
 #cup {
-  font-size: x-large;
   font-style: italic;
+  color: blanchedalmond;
+  font-size: x-large;
 
+}
+#title {
+  background-image: url(https://thumbs.dreamstime.com/b/frame-coffee-beans-cup-isolated-white-background-top-view-165565546.jpg);
+}
+#letters {
+  font-style: italic;
+  border-color: rgb(15, 9, 63);
+  font-stretch: extra-condensed;
+  color: rgb(75, 23, 10);
+
+  
+}
+#letter {
+  font-style: italic;
+  font-weight: 700;
+
+  
 }

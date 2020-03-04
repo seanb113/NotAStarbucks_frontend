@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const TitleBar = (props) => {
     return(
-<div className="ui right  menu">
+<div className="ui right  menu" id="title">
   <a className="active item" id ="cup">
     NOT YOUR REGULAR CUP OF JOE
   </a>
