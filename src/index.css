@@ -5,8 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-
+  background-color: #ccbfa9;
 }
 
 code {
@@ -28,6 +27,7 @@ code {
   border-color: rgb(15, 9, 63);
   font-stretch: extra-condensed;
   color: rgb(75, 23, 10);
+  /* display: flex */
 
   
 }
@@ -42,6 +42,7 @@ code {
   font-style: bold;
   font-weight: 700;
   color: rgb(75, 23, 10);
+  display: inline-grid
   
 }
 
@@ -49,3 +50,15 @@ code {
   padding-left: 8rem
 }
 
+
+.ui.basic.label {
+  background: none #ccbfa9;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.segment {
+  background-color: blanchedalmond;
+}

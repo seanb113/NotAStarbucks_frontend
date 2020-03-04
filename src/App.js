@@ -101,10 +101,12 @@ handleSort = (value) => {
   getSorted(){
     // debugger
     let value = this.state.sort
-    return this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? 1 : -1)
-    // this.setState({
-    //   displayedShops: withSort
-    // })
+    return(
+    value === "price"
+    ?
+    (this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? 1 : -1))
+    :
+    (this.state.displayedShops.sort((shop1, shop2) => shop1[value] > shop2[value] ? -1 : 1)))
   }
   
   resetList = () =>{
