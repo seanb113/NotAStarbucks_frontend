@@ -16,13 +16,17 @@ const UserProfile  = props => {
                 </div>
             
              
-            <div id="letter" >Here are {props.user}'s favorite coffee shops:
+            <div id="letter" >Here are {props.user}'s favorite coffee shops:<br/>
+            <br/><div class="ui four column grid"> 
             {props.display.map(shop=> 
                 <Coffee coffee={shop} selectShop={props.selectShop}/>
             )}
             
-             <Link to="/coffeeshops">
-             <button className="ui brown basic button"onClick={props.goBack}> See all coffee shops in DC</button>
+             </div><br/>
+             <br/><Link to="/coffeeshops">
+              <div className="ui labeled button" tabindex="0">
+             <button className="ui inverted brown button"onClick={props.goBack}> See all coffee shops in DC</button>
+             </div>
              </Link>
              </div>
              </div>

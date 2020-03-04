@@ -6,14 +6,20 @@ class CoffeeList extends Component {
 
   render(){
   return (
-      <div class="ui four column grid"> 
-        {this.props.coffee_shops.map(coffee=>
-          <Coffee coffee={coffee} key = {coffee.id} selectShop={this.props.selectShop}/>)}
+    <div>
+    <div>
           <Link to="/profile">
-      <button className="ui brown basic button"onClick={this.props.goToProfile}>See your favorites</button>
+          <div className="ui labeled button" tabindex="0">
+      <button className="ui inverted brown button"onClick={this.props.goToProfile}>See your favorites</button><br/>
+      </div>
       </Link>
+      </div>
+      <br/><div class="ui four column grid"> 
         {this.props.coffee_shops.map(coffee=>
           <Coffee coffee={coffee} key = {coffee.id} selectShop={this.props.selectShop}/>)}
+        {this.props.coffee_shops.map(coffee=>
+          <Coffee coffee={coffee} key = {coffee.id} selectShop={this.props.selectShop}/>)}
+      </div>
       </div>
   )
   }
