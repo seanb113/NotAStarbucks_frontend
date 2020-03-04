@@ -33,8 +33,7 @@ class App extends Component {
     .then(r=>r.json())
     .then(coffeeList=>
       this.setState({
-        coffeeShops: coffeeList,
-        displayedShops: coffeeList})
+        coffeeShops: coffeeList})
       )
     }
     
@@ -53,8 +52,12 @@ class App extends Component {
       this.setState({favorites : newShop})
       // this.postFavorite(shop)
     }
-    
   }
+
+  // removeFromFavorites =(shop)=>{
+  //   let newArray = this.state.favorites.map(s=> s === shop ? s.remove() : s)
+  //   this.setState({favorites : newArray})
+  // }
 
   // postFavorite = (coffeeShop) => {
   //   let userObject = fetchCurrentUser()
@@ -134,8 +137,8 @@ handleSort = (value) => {
     <div className="App">
       <TitleBar  />
    
-    {this.state.currentUser && !this.state.selectedShop ? <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
-    {this.state.currentUser && !this.state.selectedShop ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}
+    {this.state.currentUser && this.state.displayedShops.length > 0 ? <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
+    {this.state.currentUser && this.state.displayedShops.length > 0  ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}<br/>
             
      <Switch>
             <Route path="/coffeeshops/:id" render={(props) => {

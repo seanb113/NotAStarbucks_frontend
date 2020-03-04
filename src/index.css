@@ -37,3 +37,15 @@ code {
 
   
 }
+
+#letter2 {
+  font-style: bold;
+  font-weight: 700;
+
+  
+}
+
+.ui.four.column.grid {
+  padding-left: 8rem
+}
+
