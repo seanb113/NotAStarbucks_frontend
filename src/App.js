@@ -54,10 +54,13 @@ class App extends Component {
     }
   }
 
-  // removeFromFavorites =(shop)=>{
-  //   let newArray = this.state.favorites.map(s=> s === shop ? s.remove() : s)
-  //   this.setState({favorites : newArray})
-  // }
+  removeFromFavorites =(shop)=>{
+    if(!this.state.favorites.includes(shop)){
+      alert("This shop is not in your favorites")
+    }else{
+    let newArray = this.state.favorites.filter(s=> s !== shop)
+    this.setState({favorites : newArray})}
+  }
 
   // postFavorite = (coffeeShop) => {
   //   let userObject = fetchCurrentUser()
@@ -146,7 +149,7 @@ handleSort = (value) => {
               let id = parseInt(props.match.params.id)
               let selectedShop = this.state.coffeeShops.find(s=>s.id === id)
               return <CoffeeCard
-              shop={selectedShop} addToFavorites={this.addToFavorites} goBack={this.resetList}/>
+              shop={selectedShop} addToFavorites={this.addToFavorites} favorites={this.state.favorites} goBack={this.resetList} removeFromFavorites={this.removeFromFavorites}/>
             }} />
             <Route exact path="/coffeeshops" render={()=>
               <CoffeeList coffee_shops={searchedShops} selectShop={this.selectShop} goToProfile={this.goToProfile}/>
