@@ -64,6 +64,7 @@ class App extends Component {
 
   onSearch = (event) => {
     this.setState({searchText: event.target.value})
+    
   }
 
 handleSort = (value) => {
@@ -87,7 +88,8 @@ handleSort = (value) => {
     let allShops = this.state.coffeeShops
     this.setState({
       selectedShop: null,
-      displayedShops: allShops
+      displayedShops: allShops,
+      searchText: ""
       })
   }
   selectShop = (shop) =>{
