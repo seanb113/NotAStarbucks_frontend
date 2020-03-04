@@ -1,15 +1,16 @@
 import React from 'react'
+import { Button, Form, Segment, Message } from "semantic-ui-react"
 const SortControl = (props) => {
     return (
-        <div class="filterWrapper">
+        <div className="filterWrapper">
 
-            <div id={"sortLabel"} class="ui basic big horizontal label">Sort By:</div> 
+            <div id={"sortLabel"} className="ui basic big horizontal label">Sort By:</div> 
             <button
-                class="ui red button"
+                className="ui red button"
                 onClick={(event) => props.handleSort(event.target.innerText)}
             >Price</button>
             <button
-                class="ui primary button"
+                className="ui primary button"
                 onClick={(event) => props.handleSort(event.target.innerText)}
             >Rating</button>
         </div>
