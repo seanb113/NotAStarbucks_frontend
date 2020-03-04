@@ -10,6 +10,7 @@ import SortControl from "./components/SortControl"
 import About from "./components/About"
 import {Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
+import {fetchCurrentUser} from './actions/User'
 
 
 
@@ -50,9 +51,25 @@ class App extends Component {
     }else{
       let newShop = [...this.state.favorites, shop]
       this.setState({favorites : newShop})
+      // this.postFavorite(shop)
     }
     
   }
+
+  // postFavorite = (coffeeShop) => {
+  //   let userObject = fetchCurrentUser()
+  //   fetch('http://localhost:4000/favorites', {
+  //       method: 'POST',
+  //       headers: {
+  //               "Content-Type": "application/json",
+  //               "Accept": "application/json"
+  //       },
+  //       body: JSON.stringify({user_id: userObject.id, coffeeshop_id: coffeeShop.id}),
+  //   })
+  //   .then((r)=> r.json())
+  //   .then(data => {console.log("this is data", data)}
+  //     )
+  //   }
     
   loginSubmit = (user) =>{
     let username = user.name

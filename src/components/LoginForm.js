@@ -7,8 +7,7 @@ class LoginForm extends React.Component {
     }
 
     handleLoginSubmit = () => {
-        debugger
-    fetch('http://localhost:4000/login', {
+      fetch('http://localhost:4000/login', {
       method: "POST",
       headers: {
         "Content-Type" :"application/json",

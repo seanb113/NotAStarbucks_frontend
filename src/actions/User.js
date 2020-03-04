@@ -41,6 +41,7 @@ export const fetchCurrentUser = () => {
     })
       .then(response => response.json())
       .then(({ user }) => dispatch(setCurrentUser(user)))
+      
   }
 }
 
