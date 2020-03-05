@@ -17,9 +17,6 @@ class CoffeeList extends Component {
       <br/><div class="ui four column grid"> 
         {this.props.coffee_shops.map(coffee=>
           <Coffee coffee={coffee} key = {coffee.id} selectShop={this.props.selectShop}/>)}
-        {this.props.coffee_shops.map(coffee=>
-          <Coffee coffee={coffee} key = {coffee.id} selectShop={this.props.selectShop}/>)}
-      </div>
       </div>
   )
   }
