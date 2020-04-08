@@ -5,11 +5,9 @@ const TitleBar = (props) => {
     return(
 <div className="ui right  menu" id="title">
   <a className="active item" id ="cup">
-    NOT YOUR REGULAR CUP OF JOE
+    Not A Starbucks
   </a>
-
-<i className="inverted huge yellow coffee icon"></i>
-
+<button onClick={props.logOut}>Log out</button>
 </div>
     )
 }

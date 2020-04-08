@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 import { Button, Form, Segment, Message } from "semantic-ui-react"
 class LoginForm extends React.Component {
     state = {
@@ -6,7 +7,9 @@ class LoginForm extends React.Component {
         password: ""
     }
 
-    handleLoginSubmit = () => {
+    handleLoginSubmit = (e) => {
+      // e.preventDefault()
+      // debugger
       fetch('http://localhost:4000/login', {
       method: "POST",
       headers: {
@@ -19,16 +22,21 @@ class LoginForm extends React.Component {
       })
     }).then(res => res.json())
     .then(data => {
+      debugger
       console.log(data)
       if(data.successful){
         let user = data.data
         localStorage.setItem("jwt", data.token)
         this.props.loginSubmit(user)
-      }else{
-        alert(data.message)
-      }
-    })
-  };
+        fetch(`http://localhost:4000/users/${user.id}/coffeeshops`)
+        .then(r=>r.json())
+        .then(favs=>
+          this.props.recallFavs(favs)
+          )
+        }else{
+          alert(data.message)
+        }})
+    }
     render(){
      
         return(
@@ -45,6 +53,9 @@ class LoginForm extends React.Component {
             type="password" label="password" value={this.state.password} onChange={(event)=>this.setState({password: event.target.value})}/>
             </Form.Group>
             <Button type="submit">Login </Button>
+            <Link to="/signup">
+              <Button className="ui labeled button">Sign Up</Button>
+            </Link>
             </Form>
             </Segment>
         ) 

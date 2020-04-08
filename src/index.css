@@ -15,13 +15,29 @@ code {
 
 #cup {
   font-style: italic;
-  color: blanchedalmond;
+  font-weight: 900;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: rgb(32, 145, 69);
   font-size: x-large;
 
 }
 #title {
-  background-image: url(https://thumbs.dreamstime.com/b/frame-coffee-beans-cup-isolated-white-background-top-view-165565546.jpg);
+  position: relative;
+  background: url("/07.jpg");
+  background-size: 55%;
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  animation: animate 200s linear infinite;
 }
+@keyframes animate
+{
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 5000% 0;
+  }
+  }
 #letters {
   font-style: italic;
   border-color: rgb(15, 9, 63);
@@ -62,3 +78,30 @@ code {
 .ui.segment {
   background-color: blanchedalmond;
 }
+
+#page-numbers {
+  display: inline-block;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin: 0;
+}
+
+
+#page-numbers li {
+  display: inline;
+  color: black;
+  /* float: left; */
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid rgb(239, 240, 237);
+  margin: 0 4px;
+}
+
+#page-numbers li.active {
+  background-color: #4CAF50;
+  color: rgb(39, 189, 47);
+  border-radius: 5px;
+}
+
+#page-numbers li:hover:not(.active) {background-color: rgb(32, 145, 69);}

@@ -5,12 +5,12 @@ import CoffeeCard from "./components/CoffeeCard"
 import LoginForm from "./components/LoginForm"
 import UserProfile from "./components/UserProfile"
 import TitleBar from "./components/TitleBar"
-// import GoBackButton from "./components/GoBackButton"
+import SignUp from "./components/SignUp"
 import SortControl from "./components/SortControl"
 import About from "./components/About"
 import {Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
-import {fetchCurrentUser} from './actions/User'
+// import {fetchCurrentUser} from './actions/User'
 
 
 
@@ -23,8 +23,10 @@ class App extends Component {
     loggingIn: false,
     onProfilePage: false,
     favorites: [],
+    allFavorties: [],
     searchText: "",
-    sort: "price"
+    sort: "price",
+    currentUserObj: []
     // sortT: "rating"
   }
   
@@ -37,9 +39,14 @@ class App extends Component {
       )
     }
     
-  loginClick = () =>{
-    this.setState({loggingIn: true})
+  recallFavs = (favs)=>{
+    // debugger
+    console.log(favs)
+    this.setState({
+      favorites: favs
+    })
   }
+
 
   addToFavorites =(shop)=>{
     if(this.state.currentUser === null){
@@ -50,7 +57,7 @@ class App extends Component {
     }else{
       let newShop = [...this.state.favorites, shop]
       this.setState({favorites : newShop})
-      // this.postFavorite(shop)
+      this.postFavorite(shop)
     }
   }
 
@@ -60,28 +67,59 @@ class App extends Component {
     }else{
     let newArray = this.state.favorites.filter(s=> s !== shop)
     this.setState({favorites : newArray})}
+    this.deleteFavorite(shop)
   }
 
-  // postFavorite = (coffeeShop) => {
-  //   let userObject = fetchCurrentUser()
-  //   fetch('http://localhost:4000/favorites', {
-  //       method: 'POST',
-  //       headers: {
-  //               "Content-Type": "application/json",
-  //               "Accept": "application/json"
-  //       },
-  //       body: JSON.stringify({user_id: userObject.id, coffeeshop_id: coffeeShop.id}),
+  postFavorite = (coffeeShop) => {
+    debugger
+    let userObject = this.state.currentUserObj
+    fetch(`http://localhost:4000/users/${userObject.id}/coffeeshops`, {
+        method: 'POST',
+        headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+        },
+        body: JSON.stringify({user_id: userObject.id, coffeeshop_id: coffeeShop.id}),
+    })
+    }
+
+    deleteFavorite = (coffeeShop) => {
+    // debugger
+    let userObject = this.state.currentUserObj
+    fetch(`http://localhost:4000/favorites/${userObject.id}/${coffeeShop.id}`, {
+        method: 'DELETE'
+
+    })
+    .then((r)=> r.json())
+    .then(data => {console.log("this is data", data)}
+      )
+    }
+
+  // fetchCurrentUser = () => {
+  //   debugger
+  //   fetch('http://localhost:4000/profile', {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem('jwt')}`
+  //     }
   //   })
-  //   .then((r)=> r.json())
-  //   .then(data => {console.log("this is data", data)}
-  //     )
-  //   }
-    
+  //     .then(response => response.json())
+  //     .then(({ user }) =>{
+  //       return user})
+      
+  // }
+
   loginSubmit = (user) =>{
-    let username = user.name
     this.setState({
-      loggingIn: false,
-      currentUser: username
+      currentUser: user.name,
+      currentUserObj: user
+    })
+  }
+
+  logOut = () =>{
+    // debugger
+    this.setState({
+      currentUserObj: null
     })
   }
 
@@ -98,7 +136,8 @@ handleSort = (value) => {
     :
     this.setState({sort: "rating"})
   }
-  getSorted(){
+
+getSorted(){
     // debugger
     let value = this.state.sort
     return(
@@ -110,6 +149,7 @@ handleSort = (value) => {
   }
   
   resetList = () =>{
+    debugger
     let allShops = this.state.coffeeShops
     this.setState({
       selectedShop: null,
@@ -124,7 +164,7 @@ handleSort = (value) => {
   goToProfile = () =>{
     
     let favorites = this.state.favorites
-    this.state.currentUser
+    this.state.currentUserObj
     ?
     this.setState({
       displayedShops: favorites,
@@ -140,9 +180,9 @@ handleSort = (value) => {
     let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
     <div className="App">
-      <TitleBar  />
+      <TitleBar logOut={this.logOut}/>
    
-    {this.state.currentUser && this.state.displayedShops.length > 0 ? <NavBar user={this.state.currentUser} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
+    {this.state.currentUser && this.state.displayedShops.length > 0 ? <NavBar user={this.state.currentUserObj} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
     {this.state.currentUser && this.state.displayedShops.length > 0  ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}<br/>
             
      <Switch>
@@ -158,14 +198,18 @@ handleSort = (value) => {
             }/>
             <Route exact path="/" render={() => <Redirect to="/login" />} />
             <Route exact path="/profile" render={() => {
-              return this.state.currentUser ? <UserProfile user={this.state.currentUser} display = {this.state.favorites} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
+              return this.state.currentUserObj ? <UserProfile user={this.state.currentUserObj} display = {searchedShops} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
                 <Redirect to="/login"/>
             }} />
             <Route exact path="/login" render={() => {
               return this.state.currentUser ? <Redirect to="/profile"/> : <LoginForm
-                loginSubmit={this.loginSubmit}
+                loginSubmit={this.loginSubmit} recallFavs={this.recallFavs}
               />
             }} />
+            <Route exact path="/signup" render={() => {
+             return !this.state.currentUser ? <SignUp loginSubmit = {this.loginSubmit}f/> : <Redirect to="/profile"/>
+            }
+            }/>
           </Switch>
 
     {/* {this.state.onProfilePage === true ? <UserProfile user = {this.state.currentUser} display = {this.state.displayedShops} favorites = {this.state.favorites}/> : null }

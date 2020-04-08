@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {userPostFetch} from '../redux/actions'
+// import {Route, Switch, Redirect, Link} from 'react-router-dom'
 
-class Signup extends Component {
+class SignUp extends Component {
   state = {
-    username: "",
+    name: "",
     password: "",
   }
 
@@ -13,41 +13,60 @@ class Signup extends Component {
     });
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    this.props.userPostFetch(this.state)
-  }
+  handleLoginSubmit = (e) => {
+    // e.preventDefault()
+    // debugger
+    fetch('http://localhost:4000/users', {
+    method: "POST",
+    headers: {
+      "Content-Type" :"application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      name: this.state.name,
+      password: this.state.password
+    })
+  }).then(res => res.json())
+  .then(data => {
+    debugger
+    localStorage.setItem("token", data.jwt)
+    this.props.loginSubmit(data.user)
+  })}
 
   render() {
+    // debugger
+    const {name, password} = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>Sign Up For An Account</h1>
-
-        <label>Username</label>
-        <input
-          name='username'
-          placeholder='Username'
-          value={this.state.username}
-          onChange={this.handleChange}
-          /><br/>
-
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={this.state.password}
-          onChange={this.handleChange}
-          /><br/>
-
-        <input type='submit'/>
-      </form>
-    )
+      <div>
+        <h1>Sign Up</h1>
+        <form onSubmit={this.handleLoginSubmit}>
+          <input
+            placeholder="name"
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+          />
+          <input 
+            placeholder="password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+          <button placeholder="submit" type="submit">
+            Sign Up
+          </button>
+      
+        </form>
+        <div>
+          {
+            this.state.errors ? this.handleErrors() : null
+          }
+        </div>
+      </div>
+    );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
-})
-
-export default connect(null, mapDispatchToProps)(Signup);
+export default SignUp
