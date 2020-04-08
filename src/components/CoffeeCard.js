@@ -1,31 +1,46 @@
 import React from "react"
 import {Link} from 'react-router-dom'
+import { FaBeer, FaBacon, FaIceCream} from 'react-icons/fa'
+import { GiCoffeeCup, GiBookshelf, GiCupcake, GiSandwich} from 'react-icons/gi'
+import { IoMdWine } from 'react-icons/io'
 class CoffeeCard extends React.Component {
     render(){
         console.log(this.props)
         return(
             <div id="letter">
-              {this.props.shop.name}<br/>
-             <img alt ="image" src ={this.props.shop.image_url} /><br/>
+             <h3>{this.props.shop.name}</h3><br/>
+             <img id="picture" alt ="image" src ={this.props.shop.image_url} /><br/>
               Price: {this.props.shop.price}<br/>
               Phone number: {this.props.shop.display_phone}<br/>
-              Rating: {this.props.shop.rating}<br/>
+              Rating: {this.props.shop.rating} stars<br/>
               Location: {this.props.shop.location}<br/>
+             <div>
+                {this.props.shop.categories.includes('coffee') ? <GiCoffeeCup id="coffeeCup"/> : null}
+                {this.props.shop.categories.includes('bookstores') ? <GiBookshelf id="bookstore" /> : null}
+                {this.props.shop.categories.includes('bakeries') ? <GiCupcake id="bakery"/> : null}
+                {this.props.shop.categories.includes('sandwiches') ? <GiSandwich id="lunch"/> : null}
+                {this.props.shop.categories.includes('breakfast_brunch') ? <FaBacon id="breakfast"/> : null}
+                {this.props.shop.categories.includes('icecream') ? <FaIceCream id="icecream"/> : null}
+                {this.props.shop.categories.includes('gelato') ? <FaIceCream id="icecream"/> : null}
+                {this.props.shop.categories.includes('cocktailbars') ? <IoMdWine id="alcohol"/> : null}
+                {this.props.shop.categories.includes('wine_bars') ? <IoMdWine id="alcohol"/> : null}
+            </div>
 
              
-              <div className="ui labeled button" tabIndex="0">
-              
-              <button  className="ui inverted brown button" disabled={this.props.favorites.includes(this.props.shop) ? true : false}onClick={()=>this.props.addToFavorites(this.props.shop)}>Add to your favorites </button>
+              <div className="ui labeled button">
+              {this.props.favorites.includes(this.props.shop) ? <button className="ui inverted button" onClick={()=>this.props.removeFromFavorites(this.props.shop)}>Remove from favorites</button> : <button  className="ui inverted button" onClick={()=>this.props.addToFavorites(this.props.shop)}>Add to your favorites </button>}
               </div>
-              <div className="ui labeled button" tabIndex="0">
-              <button className="ui inverted brown button" disabled={this.props.favorites.includes(this.props.shop) ? false : true}onClick={()=>this.props.removeFromFavorites(this.props.shop)}>Remove from favorites</button>
-              </div>
+             <br/>
+             <div id="map">
               <p>
              <img src={`https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C${this.props.shop.latitude},${this.props.shop.longitude}&key=${process.env.REACT_APP_GOOGLEMAPS_API_KEY}`}/>
                 </p>
+                </div>
           <Link to="/coffeeshops">
+          <div>
           <div className="ui labeled button" tabIndex="0">
-          <button className="ui inverted brown button" onClick={this.props.goBack}>See all coffee shops in DC</button>
+          <button className="ui inverted button" onClick={this.props.goBack}>See all coffee shops in DC</button>
+          </div>
           </div>
           </Link>
               

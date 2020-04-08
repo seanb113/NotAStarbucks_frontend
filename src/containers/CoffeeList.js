@@ -46,7 +46,7 @@ class CoffeeList extends Component {
     <div>
           <Link to="/profile">
           <div className="ui labeled button" tabIndex="0">
-      <button className="ui inverted brown button"onClick={this.props.goToProfile}>See your favorites</button><br/>
+      <button className="ui inverted button"onClick={this.props.goToProfile}>See your favorites</button><br/>
       </div>
       </Link>
       </div>

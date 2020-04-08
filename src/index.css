@@ -21,6 +21,15 @@ code {
   font-size: x-large;
 
 }
+a#cup.active.item{
+  opacity: 1;
+  padding-right: 100rem
+}
+#picture{
+  border-radius: 8px;
+  width: 50%;
+  height: 50%
+}
 #title {
   position: relative;
   background: url("/07.jpg");
@@ -42,7 +51,7 @@ code {
   font-style: italic;
   border-color: rgb(15, 9, 63);
   font-stretch: extra-condensed;
-  color: rgb(75, 23, 10);
+  color: rgb(32, 145, 69);
   /* display: flex */
 
   
@@ -57,7 +66,7 @@ code {
 #letter2 {
   font-style: bold;
   font-weight: 700;
-  color: rgb(75, 23, 10);
+  color: rgb(32, 145, 69);
   display: inline-grid
   
 }
@@ -70,7 +79,7 @@ code {
 .ui.basic.label {
   background: none #ccbfa9;
   border: 1px solid rgba(34,36,38,.15);
-  color: rgba(0,0,0,.87);
+  color: rgb(32, 145, 69);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -89,7 +98,7 @@ code {
 
 #page-numbers li {
   display: inline;
-  color: black;
+  color: rgb(238, 232, 232);
   /* float: left; */
   padding: 8px 16px;
   text-decoration: none;
@@ -104,4 +113,15 @@ code {
   border-radius: 5px;
 }
 
+.ui.inverted.button {
+  border-radius: 5px;
+  border: 1px solid rgb(239, 240, 237);
+  background-color: rgb(32, 145, 69)
+}
+
 #page-numbers li:hover:not(.active) {background-color: rgb(32, 145, 69);}
+
+#map {
+  padding-top: 2rem;
+  padding-bottom: 2rem
+}

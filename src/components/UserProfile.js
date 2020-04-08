@@ -25,7 +25,7 @@ const UserProfile  = props => {
              </div><br/>
              <br/><Link to="/coffeeshops">
               <div className="ui labeled button" tabIndex="0">
-             <button className="ui inverted brown button"onClick={props.goBack}> See all coffee shops in DC</button>
+             <button className="ui inverted button"onClick={props.goBack}> See all coffee shops in DC</button>
              </div>
              </Link>
              </div>

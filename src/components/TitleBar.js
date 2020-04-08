@@ -7,7 +7,7 @@ const TitleBar = (props) => {
   <a className="active item" id ="cup">
     Not A Starbucks
   </a>
-<button onClick={props.logOut}>Log out</button>
+{/* <button onClick={props.logOut}>Log out</button> */}
 </div>
     )
 }

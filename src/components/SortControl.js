@@ -6,11 +6,11 @@ const SortControl = (props) => {
 
             <div id={"sortLabel"} className="ui basic small horizontal label">Sort By:</div> 
             <button
-                className="ui inverted brown button"
+                className="ui inverted button"
                 onClick={(event) => props.handleSort(event.target.innerText)}
             >Price</button>
             <button
-                className="ui inverted brown button"
+                className="ui inverted button"
                 onClick={(event) => props.handleSort(event.target.innerText)}
             >Rating</button>
         </div>

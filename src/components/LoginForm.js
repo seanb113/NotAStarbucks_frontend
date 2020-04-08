@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
             <Form.Input            
             type="password" label="password" value={this.state.password} onChange={(event)=>this.setState({password: event.target.value})}/>
             </Form.Group>
-            <Button type="submit">Login </Button>
+            <button class="ui inverted button" type="submit">Login </button>
             <Link to="/signup">
               <Button className="ui labeled button">Sign Up</Button>
             </Link>
