@@ -138,3 +138,75 @@ a#cup.active.item{
 #icons {
   color: rgb(15, 9, 63)
 }
+
+#searchContainer{
+  padding-top: 2rem;
+  padding-left: 4rem
+}
+
+#searchLabel{
+  /* position: absolute; */
+  /* top: 10%; */
+  /* left: 50%; */
+  transform: translate(-50%,-50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: rgb(14, 151, 128);
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  /* padding: 5px; */
+}
+
+.form-control{
+  background: rgb(14, 151, 128);
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.icon.search{
+  margin: 10em;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+.ui.label>.icon {
+  width: auto;
+  margin: 0 .15em 0 0;
+}
+
+#searchLabel:hover{
+  width: 200px;
+  cursor: pointer;
+}
+
+#searchLabel:hover .form-control{
+  display: block;
+}
+
+#searchLabel:hover .icon.search{
+  background: rgb(14, 151, 128);
+  color:  #07051a;
+}

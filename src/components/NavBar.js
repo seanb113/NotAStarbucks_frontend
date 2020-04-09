@@ -2,10 +2,12 @@ import React from 'react'
 
 const NavBar = (props) => {
 return(
-    <div id={"sortLabel"} className="ui basic big horizontal label"> 
-        <input className="form-control" placeholder="Search by name..." onChange={props.onSearch}/>
-     
+    <div id="searchContainer">
+    <div id="searchLabel" className="ui basic big horizontal label"> 
+        <input className="form-control" onChange={props.onSearch}/>
+        <i class="icon search"></i>
       
+    </div>
     </div>
 )
 }
