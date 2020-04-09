@@ -15,7 +15,7 @@ const Coffee  = props => {
                 <div id="letters">
                 Rating:{props.coffee.rating} stars<br/> Price:{props.coffee.price}
                 </div>
-                <div>
+                <div id="icons">
                 {props.coffee.categories.includes('coffee') ? <GiCoffeeCup id="coffeeCup" /> : null}
                 {props.coffee.categories.includes('bookstores') ? <GiBookshelf id="bookstore"/> : null}
                 {props.coffee.categories.includes('bakeries') ? <GiCupcake id="bakery"/> : null}

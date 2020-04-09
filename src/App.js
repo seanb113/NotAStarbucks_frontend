@@ -180,8 +180,8 @@ getSorted(){
     <div className="App">
       <TitleBar logOut={this.logOut}/>
    
-    {this.state.currentUser && this.state.displayedShops.length > 0 && this.state.selectedShop === null ? <NavBar user={this.state.currentUserObj} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
-    {this.state.currentUser && this.state.displayedShops.length > 0  && this.state.selectedShop === null ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}<br/>
+    {this.state.currentUser && this.state.displayedShops.length > 0 && this.state.selectedShop === null && this.state.displayedShops.length !== this.state.favorites.length ? <NavBar user={this.state.currentUserObj} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
+    {this.state.currentUser && this.state.displayedShops.length > 0  && this.state.selectedShop === null && this.state.displayedShops.length !== this.state.favorites.length ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}<br/>
             
      <Switch>
             <Route path="/coffeeshops/:id" render={(props) => {

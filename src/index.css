@@ -14,21 +14,27 @@ code {
 }
 
 #cup {
-  font-style: italic;
+  background: url("/logo_transparent.png");
+  background-size: 50%;
+  position: relative
+  /* font-style: italic;
   font-weight: 900;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: rgb(32, 145, 69);
-  font-size: x-large;
+  font-size: x-large; */
 
 }
 a#cup.active.item{
-  opacity: 1;
-  padding-right: 100rem
+  background: url("/logo_transparent.png");
+  background-size: 100%;
+  background-position: 0;
+  padding-top: 3rem;
+  padding-right: 30rem;
 }
 #picture{
   border-radius: 8px;
-  width: 50%;
-  height: 50%
+  width: 30%;
+  height: 30%
 }
 #title {
   position: relative;
@@ -51,7 +57,7 @@ a#cup.active.item{
   font-style: italic;
   border-color: rgb(15, 9, 63);
   font-stretch: extra-condensed;
-  color: rgb(32, 145, 69);
+  color: rgb(14, 151, 128);
   /* display: flex */
 
   
@@ -66,7 +72,7 @@ a#cup.active.item{
 #letter2 {
   font-style: bold;
   font-weight: 700;
-  color: rgb(32, 145, 69);
+  color: rgb(14, 151, 128);
   display: inline-grid
   
 }
@@ -79,7 +85,7 @@ a#cup.active.item{
 .ui.basic.label {
   background: none #ccbfa9;
   border: 1px solid rgba(34,36,38,.15);
-  color: rgb(32, 145, 69);
+  color: rgb(14, 151, 128);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -109,19 +115,23 @@ a#cup.active.item{
 
 #page-numbers li.active {
   background-color: #4CAF50;
-  color: rgb(39, 189, 47);
+  color: rgb(14, 151, 128);
   border-radius: 5px;
 }
 
 .ui.inverted.button {
   border-radius: 5px;
-  border: 1px solid rgb(239, 240, 237);
-  background-color: rgb(32, 145, 69)
+  border: 1px solid rgb(237, 240, 238);
+  background-color: rgb(14, 151, 128)
 }
 
-#page-numbers li:hover:not(.active) {background-color: rgb(32, 145, 69);}
+#page-numbers li:hover:not(.active) {background-color: rgb(14, 151, 128);}
 
 #map {
   padding-top: 2rem;
   padding-bottom: 2rem
+}
+
+#icons {
+  color: rgb(15, 9, 63)
 }
