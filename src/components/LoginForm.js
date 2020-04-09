@@ -30,8 +30,8 @@ class LoginForm extends React.Component {
         this.props.loginSubmit(user)
         fetch(`http://localhost:4000/users/${user.id}/coffeeshops`)
         .then(r=>r.json())
-        .then(favs=>
-          this.props.recallFavs(favs)
+        .then(r=>this.props.recallFavs(r)
+        
           )
         }else{
           alert(data.message)

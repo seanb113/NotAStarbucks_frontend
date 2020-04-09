@@ -40,33 +40,25 @@ class App extends Component {
     }
     
   recallFavs = (favs)=>{
-    // debugger
+    debugger
     console.log(favs)
     this.setState({
-      favorites: favs
+      favorites: favs,
+      displayedShops: favs
     })
   }
 
 
   addToFavorites =(shop)=>{
-    if(this.state.currentUser === null){
-      alert("please login")
-    }
-    else if(this.state.favorites.includes(shop)){
-      alert("You already added this shop to your favorites")
-    }else{
       let newShop = [...this.state.favorites, shop]
       this.setState({favorites : newShop})
       this.postFavorite(shop)
     }
-  }
 
   removeFromFavorites =(shop)=>{
-    if(!this.state.favorites.includes(shop)){
-      alert("This shop is not in your favorites")
-    }else{
-    let newArray = this.state.favorites.filter(s=> s !== shop)
-    this.setState({favorites : newArray})}
+    debugger
+    let newArray = this.state.favorites.filter(s=> s.id !== shop.id)
+    this.setState({favorites : newArray})
     this.deleteFavorite(shop)
   }
 
@@ -79,20 +71,26 @@ class App extends Component {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
         },
-        body: JSON.stringify({user_id: userObject.id, coffeeshop_id: coffeeShop.id}),
-    })
+        body: JSON.stringify({user_id: userObject.id, coffee_shop_id: coffeeShop.id}),
+    }).then(r=>r.json())
+      .catch(error => console.error('Error:', error))
+      .then(r=> console.log(r)
+      )
+      alert("Added to favorites")
     }
 
     deleteFavorite = (coffeeShop) => {
-    // debugger
-    let userObject = this.state.currentUserObj
-    fetch(`http://localhost:4000/favorites/${userObject.id}/${coffeeShop.id}`, {
+    debugger
+    let favorite = this.state.favorites.find(c=>c.id === coffeeShop.id)
+    let id = favorite.favorites[0].id
+    fetch(`http://localhost:4000/favorites/${id}`, {
         method: 'DELETE'
 
     })
-    .then((r)=> r.json())
-    .then(data => {console.log("this is data", data)}
+    .then(r => r.text())
+    .then(console.log("deleted")
       )
+      alert("Removed from favorites")
     }
 
   // fetchCurrentUser = () => {

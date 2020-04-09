@@ -6,6 +6,7 @@ import { IoMdWine } from 'react-icons/io'
 class CoffeeCard extends React.Component {
     render(){
         console.log(this.props)
+        console.log(this.props.favorites.map(f=>f.id).includes(this.props.shop.id))
         return(
             <div id="letter">
              <h3>{this.props.shop.name}</h3><br/>
@@ -28,7 +29,7 @@ class CoffeeCard extends React.Component {
 
              
               <div className="ui labeled button">
-              {this.props.favorites.includes(this.props.shop) ? <button className="ui inverted button" onClick={()=>this.props.removeFromFavorites(this.props.shop)}>Remove from favorites</button> : <button  className="ui inverted button" onClick={()=>this.props.addToFavorites(this.props.shop)}>Add to your favorites </button>}
+              {this.props.favorites.map(f=>f.id).includes(this.props.shop.id) ? <button className="ui inverted button" onClick={()=>this.props.removeFromFavorites(this.props.shop)}>Remove from favorites</button> : <button  className="ui inverted button" onClick={()=>this.props.addToFavorites(this.props.shop)}>Add to your favorites </button>}
               </div>
              <br/>
              <div id="map">
