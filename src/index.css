@@ -101,6 +101,9 @@ a#cup.active.item{
   margin: 0;
 }
 
+.hidden {
+  display: none
+}
 
 #page-numbers li {
   display: inline;
@@ -121,7 +124,7 @@ a#cup.active.item{
 
 .ui.inverted.button {
   border-radius: 5px;
-  border: 1px solid rgb(237, 240, 238);
+  /* border: 1px solid rgb(237, 240, 238); */
   background-color: rgb(14, 151, 128)
 }
 
