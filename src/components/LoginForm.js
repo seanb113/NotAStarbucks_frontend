@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from 'react-router-dom'
-import { Button, Form, Segment, Message } from "semantic-ui-react"
+import { Button, Form, Segment } from "semantic-ui-react"
 class LoginForm extends React.Component {
     state = {
         name: "",
@@ -8,8 +8,6 @@ class LoginForm extends React.Component {
     }
 
     handleLoginSubmit = (e) => {
-      // e.preventDefault()
-      // debugger
       fetch('http://localhost:4000/login', {
       method: "POST",
       headers: {

@@ -25,7 +25,7 @@ code {
   font-size: x-large; */
 
 }
-a#cup.active.item{
+div#cup.active.item{
   background: url("/logo_transparent.png");
   background-size: 100%;
   background-position: 0;

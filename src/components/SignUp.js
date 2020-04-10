@@ -14,8 +14,6 @@ class SignUp extends Component {
   }
 
   handleLoginSubmit = (e) => {
-    // e.preventDefault()
-    // debugger
     fetch('http://localhost:4000/users', {
     method: "POST",
     headers: {
@@ -34,7 +32,6 @@ class SignUp extends Component {
   })}
 
   render() {
-    // debugger
     const {name, password} = this.state
     return (
       <div>

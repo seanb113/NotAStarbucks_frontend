@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Coffee from '../components/Coffee'
+import Coffee from '../containers/Coffee'
 import {Link} from 'react-router-dom'
 class UserProfile extends Component {
     state ={
@@ -41,7 +41,7 @@ class UserProfile extends Component {
         
             <div className="ui centered card">
                 <div className="ui fluid image">
-                 <img src={this.state.picture === "" ? this.props.user.profile_pic : this.state.picture}/>
+                 <img alt="" src={this.state.picture === "" ? this.props.user.profile_pic : this.state.picture}/>
                  <i onClick={this.editImage} class="icon edit"></i>
             <div className={this.state.editPic === false ? 'hidden' : ''}>
             <input onChange={(event)=>this.setState({url: event.target.value})} placeholder="image url"></input>
@@ -49,7 +49,7 @@ class UserProfile extends Component {
             </div>
                 </div>
                 <div className="content">
-                <a className="header">{this.props.user.name}</a>
+                <h2 className="header">{this.props.user.name}</h2>
                 </div>
                 </div>
             

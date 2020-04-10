@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar'
-import CoffeeList from './containers/CoffeeList'
+import NavBar from './containers/NavBar'
+import CoffeeList from './components/CoffeeList'
 import CoffeeCard from "./components/CoffeeCard"
 import LoginForm from "./components/LoginForm"
 import UserProfile from "./components/UserProfile"
-import TitleBar from "./components/TitleBar"
+import TitleBar from "./containers/TitleBar"
 import SignUp from "./components/SignUp"
-import SortControl from "./components/SortControl"
-import About from "./components/About"
+import SortControl from "./containers/SortControl"
 import {Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
-// import {fetchCurrentUser} from './actions/User'
-
-
 
 class App extends Component {
   state = {
@@ -93,19 +89,6 @@ class App extends Component {
       alert("Removed from favorites")
     }
 
-  // fetchCurrentUser = () => {
-  //   debugger
-  //   fetch('http://localhost:4000/profile', {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem('jwt')}`
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(({ user }) =>{
-  //       return user})
-      
-  // }
 
   loginSubmit = (user) =>{
     this.setState({
@@ -159,21 +142,7 @@ getSorted(){
     this.setState({selectedShop: shop})
   }
 
-  goToProfile = () =>{
-    
-    let favorites = this.state.favorites
-    this.state.currentUserObj
-    ?
-    this.setState({
-      displayedShops: favorites,
-      onProfilePage: true})
-    :
-    alert("please login")
-  }
-
   render(){
-    let favorites = this.state.favorties
-
     let sortedShops = this.getSorted(this.state.sort)
     let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
@@ -209,11 +178,6 @@ getSorted(){
             }
             }/>
           </Switch>
-
-    {/* {this.state.onProfilePage === true ? <UserProfile user = {this.state.currentUser} display = {this.state.displayedShops} favorites = {this.state.favorites}/> : null }
-    {this.state.selectedShop !== null ? <CoffeeCard coffeeCard = {this.state.selectedShop} goBack = {this.resetList} addToFavorites={this.addToFavorites}/>: <CoffeeList coffee_shops={searchedShops} selectShop={this.selectShop} goToProfile={this.goToProfile}/>} */}
-    {/* {this.state.onProfilePage || this.state.selectedShop!== null ? <GoBackButton goBack = {this.resetList}/> : null} */}
-   
     </div>
   
   )

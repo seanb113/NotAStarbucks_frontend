@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import Coffee from '../components/Coffee'
+import Coffee from '../containers/Coffee'
 
 class CoffeeList extends Component {
 
@@ -17,14 +17,10 @@ class CoffeeList extends Component {
   }
 
   render(){
-    const { shops, currentPage, shopsPerPage } = this.state;
-
-    // Logic for displaying todos
+    const { currentPage, shopsPerPage } = this.state;
     const indexOfLastShop = currentPage * shopsPerPage;
     const indexOfFirstShop = indexOfLastShop - shopsPerPage;
     const currentShops = this.props.coffee_shops.slice(indexOfFirstShop, indexOfLastShop);
-
-    // Logic for displaying page numbers
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(this.props.coffee_shops.length / shopsPerPage); i++) {
       pageNumbers.push(i);
