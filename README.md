@@ -11,7 +11,6 @@ Available features:
 - Fork and clone this repo and [the backend repo](https://github.com/seanb113/notAStarbucks_backend)
 
 - First cd into the notAStarbucks_backend directory in the backend repo
-  - Run `$ rails db:create`
   - Run `$ rails db:migrate`
   - Run `$ rails db:seed`
   - Run `$ rails s -p 4000`
