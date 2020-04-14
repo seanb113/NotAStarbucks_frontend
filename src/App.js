@@ -36,7 +36,6 @@ class App extends Component {
     }
     
   recallFavs = (favs)=>{
-    debugger
     console.log(favs)
     this.setState({
       favorites: favs,
