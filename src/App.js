@@ -164,7 +164,7 @@ getSorted(){
             }/>
             <Route exact path="/" render={() => <Redirect to="/login" />} />
             <Route exact path="/profile" render={() => {
-              return this.state.currentUserObj ? <UserProfile user={this.state.currentUserObj} display = {searchedShops} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
+              return this.state.currentUserObj ? <UserProfile user={this.state.currentUserObj} display = {this.state.favorites} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
                 <Redirect to="/login"/>
             }} />
             <Route exact path="/login" render={() => {

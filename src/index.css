@@ -5,13 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("/bg.jpg");
+  background-image: url("/caffeine-coffee-coffee-beans-roasted-585750.jpg");
   background-size: 200%
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.ui.centered.card{
+  margin-top: 5rem
+}
+.ui.left.card{
+  margin-right: -10rem
+}
+
+.ui.form {
+  font-size: 1rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
 #cup {
@@ -108,13 +121,14 @@ div#cup.active.item{
 
 #page-numbers li {
   display: inline;
-  color: rgb(238, 232, 232);
+  color: rgb(10, 10, 10);
   /* float: left; */
   padding: 8px 16px;
   text-decoration: none;
   border-radius: 5px;
   border: 1px solid rgb(239, 240, 237);
   margin: 0 4px;
+  background-color: white;
 }
 
 #page-numbers li.active {

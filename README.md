@@ -21,13 +21,13 @@ Available features:
 ## Screenshots of App Experience
 
 #### Login Screen
-![Login Screen](./public/img/login.png) 
+![Login Screen](./public/img/logini.png) 
 
 #### Profile Screen
-![Profile Screen](./public/img/profile.png)
+![Profile Screen](./public/img/profilei.png)
 
 #### All Coffee Shop Search and Sort Sreen
-![All Coffee Shop Search and Sort Sreen](./public/img/coffeelist.png) 
+![All Coffee Shop Search and Sort Sreen](./public/img/coffeelis.png) 
 
 #### Coffee Shop Information Screen
 ![Coffee Shop Information Screen](./public/img/coffeepage.png) 

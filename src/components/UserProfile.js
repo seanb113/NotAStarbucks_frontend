@@ -39,17 +39,31 @@ class UserProfile extends Component {
         return(
             <div>
         
-            <div className="ui centered card">
-                <div className="ui fluid image">
+                <div className="content">
+                <h2 className="header">{this.props.user.name}</h2>
+                </div>
+            <div class="ui two column centered grid">
+            <div class="two wide column">
+                <h3>Bio: <i onClick={this.editImage} class="icon edit"></i></h3>
+                My name is Sean. I love coffee, donuts and DC.
+                <br/>
+                I discovered coffee in Brazil in 2009.
+                <br/>
+                My favortie coffee drink is a cortado
+                <br/>
+                My least favorite coffee drink is a frappucino
+                <br/>
+                But I will drink any and all coffee even decaf.
+                </div>
+                <div class="two wide column">
+                <div className="ui medium image">
                  <img alt="" src={this.state.picture === "" ? this.props.user.profile_pic : this.state.picture}/>
                  <i onClick={this.editImage} class="icon edit"></i>
             <div className={this.state.editPic === false ? 'hidden' : ''}>
             <input onChange={(event)=>this.setState({url: event.target.value})} placeholder="image url"></input>
             <button onClick={this.uploadImage}>Submit</button>
             </div>
-                </div>
-                <div className="content">
-                <h2 className="header">{this.props.user.name}</h2>
+            </div>
                 </div>
                 </div>
             
