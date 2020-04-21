@@ -30,7 +30,7 @@ Available features:
 ![All Coffee Shop Search and Sort Sreen](./public/img/coffeelis.png) 
 
 #### Coffee Shop Information Screen
-![Coffee Shop Information Screen](./public/img/coffeepage.png) 
+![Coffee Shop Information Screen](./public/img/coffeepagei.png) 
 
 ## Frameworks and Libraries Used
 
