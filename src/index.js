@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import store from './redux/Store';
+// import store from './redux/Store';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -9,9 +9,9 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 ReactDOM.render(
     <Router>
-    <Provider store={store} >
+    {/* <Provider store={store} > */}
     <App />
-    </Provider>
+    {/* </Provider> */}
     </Router>, 
     document.getElementById('root')
 );

@@ -5,17 +5,25 @@ class UserProfile extends Component {
     state ={
         editPic: false,
         url: null,
-        picture: ""
+        picture: "",
+        bio: this.props.user.bio ? this.props.user.bio : "This person does not have a bio",
+        editBio: false,
+        text: ""
     }
     editImage = () => {
-        console.log("clicked")
         this.setState({
             editPic: true
         })
         }
+    editBio = () => {
+        console.log("clicked")
+        this.setState({
+            editBio: !this.state.editBio,
+            text: this.state.bio
+        })
+        }
 
     uploadImage = () => {
-        debugger
     let id = this.props.user.id
     let profile_pic = this.state.url
     fetch(`http://localhost:4000/users/${id}`, {
@@ -35,6 +43,26 @@ class UserProfile extends Component {
         picture: profile_pic})
       )
     }
+    handleBioSubmit = () => {
+    let id = this.props.user.id
+    let bio = this.state.text
+    fetch(`http://localhost:4000/users/${id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type" :"application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            bio: bio,
+        })})
+    .then(r=>r.json())
+    .then(r=>
+      this.setState({
+        text: "",
+        editBio: false,
+        bio: bio})
+      )
+    }
         render(){
         return(
             <div>
@@ -44,16 +72,10 @@ class UserProfile extends Component {
                 </div>
             <div class="ui two column centered grid">
             <div class="two wide column">
-                <h3>Bio: <i onClick={this.editImage} class="icon edit"></i></h3>
-                My name is Sean. I love coffee, donuts and DC.
-                <br/>
-                I discovered coffee in Brazil in 2009.
-                <br/>
-                My favortie coffee drink is a cortado
-                <br/>
-                My least favorite coffee drink is a frappucino
-                <br/>
-                But I will drink any and all coffee even decaf.
+                <h3>Bio: <i onClick={this.editBio} class="icon edit"></i></h3>
+                {this.state.editBio ? <textarea type="text" value={this.state.text} onChange={(event)=>this.setState({text: event.target.value})}></textarea> : null}
+                {this.state.editBio ? <button onClick={this.handleBioSubmit}>Submit Changes</button> : null}
+                {!this.state.editBio ? <p>{this.state.bio}</p> : null}
                 </div>
                 <div class="two wide column">
                 <div className="ui medium image">
