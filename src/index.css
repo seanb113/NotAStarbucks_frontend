@@ -150,6 +150,10 @@ div#cup.active.item{
   padding-bottom: 2rem
 }
 
+#returnButton{
+  padding-top: 5rem
+}
+
 #icons {
   color: rgb(15, 9, 63)
 }

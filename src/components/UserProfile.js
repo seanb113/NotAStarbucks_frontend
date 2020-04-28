@@ -23,24 +23,24 @@ class UserProfile extends Component {
         })
         }
 
+    handleImageChange = e => {
+    if (e.target.files[0]) this.setState({ url: e.target.files[0] });
+    };
+
     uploadImage = () => {
+    const formData = new FormData();
+    formData.append("file", this.state.url);
     let id = this.props.user.id
-    let profile_pic = this.state.url
     fetch(`http://localhost:4000/users/${id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type" :"application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            profile_pic: profile_pic,
-        })})
+        method: "PATCH",
+        body: formData
+        })
     .then(r=>r.json())
     .then(r=>
       this.setState({
         url: null,
-        editPic: false,
-        picture: profile_pic})
+        editPic: false
+      })
       )
     }
     handleBioSubmit = () => {
@@ -82,7 +82,7 @@ class UserProfile extends Component {
                  <img alt="" src={this.state.picture === "" ? this.props.user.profile_pic : this.state.picture}/>
                  <i onClick={this.editImage} class="icon edit"></i>
             <div className={this.state.editPic === false ? 'hidden' : ''}>
-            <input onChange={(event)=>this.setState({url: event.target.value})} placeholder="image url"></input>
+            <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />
             <button onClick={this.uploadImage}>Submit</button>
             </div>
             </div>
@@ -97,11 +97,13 @@ class UserProfile extends Component {
             )}
             
              </div><br/>
+             <div class="returnButton">
              <br/><Link to="/coffeeshops">
-              <div className="ui labeled button" tabIndex="0">
+              <div className="ui labeled button">
              <button className="ui inverted button"onClick={this.props.goBack}> See all coffee shops in DC</button>
              </div>
              </Link>
+             </div>
              </div>
              </div>
 
