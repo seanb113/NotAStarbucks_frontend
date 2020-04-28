@@ -150,8 +150,8 @@ div#cup.active.item{
   padding-bottom: 2rem
 }
 
-#returnButton{
-  padding-top: 5rem
+.returnButton{
+  padding-bottom: 5rem
 }
 
 #icons {
