@@ -21,16 +21,16 @@ Available features:
 ## Screenshots of App Experience
 
 #### Login Screen
-![Login Screen](./public/img/logini.png) 
+![Login Screen](./public/img/clogin.png) 
 
 #### Profile Screen
-![Profile Screen](./public/img/profilei.png)
+![Profile Screen](./public/img/cofprofile.png)
 
 #### All Coffee Shop Search and Sort Sreen
-![All Coffee Shop Search and Sort Sreen](./public/img/coffeelis.png) 
+![All Coffee Shop Search and Sort Sreen](./public/img/coflis.png) 
 
 #### Coffee Shop Information Screen
-![Coffee Shop Information Screen](./public/img/coffeepagei.png) 
+![Coffee Shop Information Screen](./public/img/coffee-card.gif) 
 
 ## Frameworks and Libraries Used
 
