@@ -2,19 +2,19 @@
 Welcome to the Local Joe app, an app to search and favorite local DC coffee shops.
 
 Available features:
-- **Users can sign up, log in, and save a profile picture**
+- **Users can sign up, log in, and upload a profile picture**
 - **Users can search for local coffee shops and sort by rating and prices**
 - **Users can favorite coffee shops**
 
 ## Installation
 
-- Fork and clone this repo and [the backend repo](https://github.com/seanb113/notAStarbucks_backend)
+- Fork and clone this repo and [the backend repo](https://github.com/seanb113/LocalJoe_backend)
 
-- First cd into the notAStarbucks_backend directory in the backend repo
+- First cd into the LocalJoe_backend directory in the backend repo
   - Run `$ rails db:migrate`
   - Run `$ rails db:seed`
   - Run `$ rails s -p 4000`
-- After the backend is up, cd into the NotAStarbucks_frontend directory in the frontend repo
+- After the backend is up, cd into the LocalJoe_frontend directory in the frontend repo
   - Run `$ npm install`
   - Run `$ npm start`
 
@@ -43,7 +43,7 @@ Available features:
 - Maria Stojanovic (https://github.com/marijastojanovic5)
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/seanb113/NotAStarbucks_frontend/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/seanb113/LocalJoe_frontend/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
