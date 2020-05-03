@@ -15,15 +15,15 @@ const Coffee  = props => {
                 Rating: {props.coffee.rating} stars<br/> Price:{props.coffee.price}
                 </div>
                 <div id="icons">
-                {props.coffee.categories.includes('coffee') ? <GiCoffeeCup id="coffeeCup" /> : null}
-                {props.coffee.categories.includes('bookstores') ? <GiBookshelf id="bookstore"/> : null}
-                {props.coffee.categories.includes('bakeries') ? <GiCupcake id="bakery"/> : null}
-                {props.coffee.categories.includes('sandwiches') ? <GiSandwich id="lunch"/> : null}
-                {props.coffee.categories.includes('breakfast_brunch') ? <FaBacon id="breakfast"/> : null}
-                {props.coffee.categories.includes('icecream') ? <FaIceCream id="icecream"/> : null}
-                {props.coffee.categories.includes('gelato') ? <FaIceCream id="icecream"/> : null}
-                {props.coffee.categories.includes('cocktailbars') ? <IoMdWine id="alcohol"/> : null}
-                {props.coffee.categories.includes('wine_bars') ? <IoMdWine id="alcohol"/> : null}
+                {props.coffee.categories.includes('coffee') ? <GiCoffeeCup title="Tea + Coffee" id="coffeeCup" /> : null}
+                {props.coffee.categories.includes('bookstores') ? <GiBookshelf title="Bookstore" id="bookstore"/> : null}
+                {props.coffee.categories.includes('bakeries') ? <GiCupcake title="Bakery" id="bakery"/> : null}
+                {props.coffee.categories.includes('sandwiches') ? <GiSandwich title="Lunch" id="lunch"/> : null}
+                {props.coffee.categories.includes('breakfast_brunch') ? <FaBacon title="Breakfast" id="breakfast"/> : null}
+                {props.coffee.categories.includes('icecream') ? <FaIceCream title="Ice Cream" id="icecream"/> : null}
+                {props.coffee.categories.includes('gelato') ? <FaIceCream title="Gelato" id="icecream"/> : null}
+                {props.coffee.categories.includes('cocktailbars') ? <IoMdWine title="Cocktail Bar" id="alcohol"/> : null}
+                {props.coffee.categories.includes('wine_bars') ? <IoMdWine title="Beer + Wine" id="alcohol"/> : null}
                 </div>
                 </div>
             </div> 

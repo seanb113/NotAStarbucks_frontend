@@ -5,13 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("/caffeine-coffee-coffee-beans-roasted-585750.jpg");
+  background: rgb(77, 80, 80);
   background-size: 200%
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#loginSegment{
+  padding-bottom: 25rem;
+  background-image: url("/coffee-front.png");
+  background-size: 100%;
 }
 
 .ui.centered.card{
@@ -28,9 +34,9 @@ code {
 }
 
 #cup {
-  background: url("/logo_transparent.png");
+  /* background: url("/logo_transparent.png");
   background-size: 50%;
-  position: relative
+  position: relative */
   /* font-style: italic;
   font-weight: 900;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -39,23 +45,37 @@ code {
 
 }
 div#cup.active.item{
-  background: url("/logo_transparent.png");
+  /* background: url("/logo_transparent.png");
   background-size: 100%;
   background-position: 0;
   padding-top: 3rem;
-  padding-right: 30rem;
+  padding-right: 30rem; */
 }
 #picture{
   border-radius: 8px;
   width: 30%;
   height: 30%
 }
+
+.ui.menu.header.item{
+  color: whitesmoke
+}
+
+.ui.form 
+.field>label {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: x-large
+}
+
 #title {
   position: relative;
-  background: url("/07.jpg");
+  background-color: rgb(17, 17, 17);
+  /* padding-bottom: 50px; */
   background-size: 55%;
-  background-position: 0 0;
-  background-repeat: repeat-x;
+  background-position: right, left;
+  background-repeat: no-repeat, repeat;
   animation: animate 200s linear infinite;
 }
 @keyframes animate
@@ -68,7 +88,7 @@ div#cup.active.item{
   }
   }
 #letters {
-  font-style: italic;
+  font-style: normal;
   border-color: rgb(15, 9, 63);
   font-stretch: extra-condensed;
   color: rgb(14, 151, 128);
@@ -77,17 +97,34 @@ div#cup.active.item{
   
 }
 #letter {
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: white
+}
 
-  
+#profileLetters {
+  font-style: normal;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin-top: 1rem
+}
+
+#profileLetters2 {
+  font-style: normal;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: black
 }
 
 #letter2 {
-  font-style: bold;
+  font-style: normal;
   font-weight: 700;
   color: rgb(14, 151, 128);
-  display: inline-grid
+  display: inline-grid;
+  margin-bottom: 2rem;
+  font-family: 'Courier New', Courier, monospace;
   
 }
 
@@ -105,7 +142,8 @@ div#cup.active.item{
 }
 
 .ui.segment {
-  background-color: blanchedalmond;
+  background-color: rgb(10, 10, 10);
+
 }
 
 #page-numbers {
@@ -137,7 +175,11 @@ div#cup.active.item{
   border-radius: 5px;
 }
 
-.ui.inverted.button {
+.ui.labeled.button{
+  margin-bottom: 2rem
+}
+
+.ui.inverted.button:hover {
   border-radius: 5px;
   /* border: 1px solid rgb(237, 240, 238); */
   background-color: rgb(14, 151, 128)
@@ -151,7 +193,11 @@ div#cup.active.item{
 }
 
 #icons {
-  color: rgb(15, 9, 63)
+  color: rgb(231, 230, 236)
+}
+
+#icons svg:hover {
+  color: rgb(14, 151, 128)
 }
 
 #searchContainer{

@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
      
         return(
 
-        <Segment>
+        <Segment id="loginSegment">
         <Form
             onSubmit={this.handleLoginSubmit}
             >
@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
             </Form.Group>
             <button className="ui inverted button" type="submit">Login </button>
             <Link to="/signup">
-              <Button className="ui labeled button">Sign Up</Button>
+              <Button className="ui inverted button">Sign Up</Button>
             </Link>
             </Form>
             </Segment>

@@ -146,7 +146,7 @@ getSorted(){
     let searchedShops = sortedShops.filter(s => s.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
     <div className="App">
-      <TitleBar logOut={this.logOut}/>
+      <TitleBar logOut={this.logOut} user={this.state.currentUser}/>
    
     {this.state.currentUser && this.state.displayedShops.length > 0 && this.state.selectedShop === null && this.state.displayedShops.length !== this.state.favorites.length ? <NavBar user={this.state.currentUserObj} loginClick={this.loginClick} onSearch={this.onSearch}/>: null}
     {this.state.currentUser && this.state.displayedShops.length > 0  && this.state.selectedShop === null && this.state.displayedShops.length !== this.state.favorites.length ? <SortControl sort={this.state.sort} getSorted={this.getSorted} handleSort={this.handleSort}/>: null}<br/>

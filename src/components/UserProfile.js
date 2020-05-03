@@ -67,15 +67,15 @@ class UserProfile extends Component {
         return(
             <div>
         
-                <div className="content">
-                <h2 className="header">{this.props.user.name}</h2>
+                <div id="profileLetters" className="content">
+                <h2 id="profileLetters" className="header">{this.props.user.name}</h2>
                 </div>
             <div class="ui two column centered grid">
             <div class="two wide column">
-                <h3>Bio: <i onClick={this.editBio} class="icon edit"></i></h3>
+                <h3 id="profileLetters2">Bio: <i onClick={this.editBio} class="icon edit"></i></h3>
                 {this.state.editBio ? <textarea type="text" value={this.state.text} onChange={(event)=>this.setState({text: event.target.value})}></textarea> : null}
                 {this.state.editBio ? <button onClick={this.handleBioSubmit}>Submit Changes</button> : null}
-                {!this.state.editBio ? <p>{this.state.bio}</p> : null}
+                {!this.state.editBio ? <p id="profileLetters">{this.state.bio}</p> : null}
                 </div>
                 <div class="two wide column">
                 <div className="ui medium image">
@@ -90,7 +90,7 @@ class UserProfile extends Component {
                 </div>
             
              
-            <div id="letter" >Here are {this.props.user.name}'s favorite coffee shops:<br/>
+            <div id="profileLetters" >Here are {this.props.user.name}'s favorite coffee shops:<br/>
             <br/><div className="ui four column grid"> 
             {this.props.display.map(shop=> 
                 <Coffee coffee={shop} selectShop={this.props.selectShop}/>
