@@ -1,5 +1,5 @@
-# Not A Starbucks
-Welcome to the Not A Starbucks, an app to search and favorite local DC coffee shops that are not a big national chain.
+# Local Joe
+Welcome to the Local Joe app, an app to search and favorite local DC coffee shops.
 
 Available features:
 - **Users can sign up, log in, and save a profile picture**
