@@ -24,12 +24,14 @@ class UserProfile extends Component {
         }
 
     handleImageChange = e => {
+        debugger
     if (e.target.files[0]) this.setState({ url: e.target.files[0] });
     };
 
     uploadImage = () => {
+        debugger
     const formData = new FormData();
-    formData.append("file", this.state.url);
+    formData.append("profile_pic", this.state.url);
     let id = this.props.user.id
     fetch(`http://localhost:4000/users/${id}`, {
         method: "PATCH",
@@ -40,7 +42,7 @@ class UserProfile extends Component {
       this.setState({
         url: null,
         editPic: false
-      })
+      }),
       )
     }
     handleBioSubmit = () => {
