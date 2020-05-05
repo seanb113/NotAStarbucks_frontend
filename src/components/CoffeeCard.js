@@ -27,7 +27,7 @@ class CoffeeCard extends React.Component {
                 {this.props.shop.categories.includes('gelato') ? <FaIceCream title="Gelato" id="icecream"/> : null}
                 {this.props.shop.categories.includes('cocktailbars') ? <IoMdWine title="Cocktail Bar" id="alcohol"/> : null}
                 {this.props.shop.categories.includes('wine_bars') ? <IoMdWine title="Beer + Wine" id="alcohol"/> : null}
-            </div>} position='bottom center'>
+            </div>} position='top center'>
              <Popup.Content>
              {/* <div id="map"> */}
               <p>

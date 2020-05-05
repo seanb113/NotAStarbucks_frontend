@@ -18,6 +18,8 @@ code {
   padding-bottom: 25rem;
   background-image: url("/coffee-front.png");
   background-size: 100%;
+  box-shadow:  20px 20px 60px #242b30, 
+             -20px -20px 60px #303b40;
 }
 
 .ui.centered.card{
@@ -33,24 +35,6 @@ code {
   padding-right: 10rem;
 }
 
-#cup {
-  /* background: url("/logo_transparent.png");
-  background-size: 50%;
-  position: relative */
-  /* font-style: italic;
-  font-weight: 900;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: rgb(32, 145, 69);
-  font-size: x-large; */
-
-}
-div#cup.active.item{
-  /* background: url("/logo_transparent.png");
-  background-size: 100%;
-  background-position: 0;
-  padding-top: 3rem;
-  padding-right: 30rem; */
-}
 #picture{
   border-radius: 8px;
   width: 30%;
@@ -143,7 +127,8 @@ div#cup.active.item{
 
 .ui.segment {
   background-color: rgb(10, 10, 10);
-
+  box-shadow:  20px 20px 60px #242b30, 
+  -20px -20px 60px #303b40;
 }
 
 #page-numbers {
@@ -176,7 +161,8 @@ div#cup.active.item{
 }
 
 .ui.labeled.button{
-  margin-bottom: 2rem
+  margin-bottom: 2rem;
+  margin-top: 2rem
 }
 
 .ui.inverted.button:hover {
