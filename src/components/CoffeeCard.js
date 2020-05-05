@@ -16,7 +16,7 @@ class CoffeeCard extends React.Component {
                 <div id="icons">
               Price: {this.props.shop.price}<br/>
               Phone number: {this.props.shop.display_phone}<br/>
-              Rating: {this.props.shop.rating} stars<br/>
+              Rating: <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className={this.props.shop.rating === 5 ? "star icon" : ""}></i> <i className={this.props.shop.rating === 4.5 ? "star half icon" : ""}></i> <br/>
               Location: {this.props.shop.location}<br/>
                 {this.props.shop.categories.includes('coffee') ? <GiCoffeeCup title="Tea + Coffee" id="coffeeCup"/> : null}
                 {this.props.shop.categories.includes('bookstores') ? <GiBookshelf title="Bookstore" id="bookstore" /> : null}

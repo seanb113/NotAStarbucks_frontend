@@ -22,7 +22,9 @@ class App extends Component {
     allFavorties: [],
     searchText: "",
     sort: "price",
-    currentUserObj: []
+    currentUserObj: [],
+    picture: "https://pecb.com/conferences/wp-content/uploads/2017/10/no-profile-picture.jpg",
+    bio: ""
     // sortT: "rating"
   }
   
@@ -33,6 +35,18 @@ class App extends Component {
       this.setState({
         coffeeShops: coffeeList})
       )
+    }
+
+    handlepicChange = (pic) => {
+      this.setState({
+      picture: pic
+      })
+    }
+
+    changeBio = (bio) => {
+      this.setState({
+        bio: bio
+      })
     }
     
   recallFavs = (favs)=>{
@@ -92,7 +106,8 @@ class App extends Component {
   loginSubmit = (user) =>{
     this.setState({
       currentUser: user.name,
-      currentUserObj: user
+      currentUserObj: user,
+      bio: user.bio
     })
   }
 
@@ -164,7 +179,7 @@ getSorted(){
             }/>
             <Route exact path="/" render={() => <Redirect to="/login" />} />
             <Route exact path="/profile" render={() => {
-              return this.state.currentUserObj ? <UserProfile user={this.state.currentUserObj} display = {this.state.favorites} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
+              return this.state.currentUserObj ? <UserProfile user={this.state.currentUserObj} changeBio={this.changeBio} bio={this.state.bio} handlepicChange={this.handlepicChange} picture={this.state.picture} display = {this.state.favorites} goBack={this.resetList} selectShop={this.selectShop} getSorted={this.getSorted}/> :
                 <Redirect to="/login"/>
             }} />
             <Route exact path="/login" render={() => {

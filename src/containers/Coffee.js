@@ -12,7 +12,7 @@ const Coffee  = props => {
               <img  alt= "" className= "ui image" src={props.coffee.image_url} style={{width: 250, height: 200}}/>
                 {props.coffee.name}<br/> 
                 <div id="letters">
-                Rating: {props.coffee.rating} stars<br/> Price:{props.coffee.price}
+                Rating: <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className={props.coffee.rating === 5 ? "star icon" : ""}></i> <i className={props.coffee.rating === 4.5 ? "star half icon" : ""}></i> <br/> Price:{props.coffee.price}
                 </div>
                 <div id="icons">
                 {props.coffee.categories.includes('coffee') ? <GiCoffeeCup title="Tea + Coffee" id="coffeeCup" /> : null}

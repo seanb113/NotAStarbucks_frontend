@@ -91,15 +91,33 @@ code {
   font-style: normal;
   font-weight: 700;
   font-family: 'Courier New', Courier, monospace;
+  background-color: black;
   color: white;
-  margin-top: 1rem
+  margin-top: 1rem;
+}
+
+#profileLetters4 {
+  font-style: normal;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  margin-top: 1rem;
+}
+
+#profileLetters3 {
+  font-style: normal;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 #profileLetters2 {
   font-style: normal;
   font-weight: 700;
   font-family: 'Courier New', Courier, monospace;
-  color: black
+  color: black;
 }
 
 #letter2 {
@@ -169,6 +187,10 @@ code {
   border-radius: 5px;
   /* border: 1px solid rgb(237, 240, 238); */
   background-color: rgb(14, 151, 128)
+}
+
+#profimage{
+  max-width: 300%;
 }
 
 #page-numbers li:hover:not(.active) {background-color: rgb(14, 151, 128);}
