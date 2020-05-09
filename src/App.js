@@ -23,7 +23,7 @@ class App extends Component {
     searchText: "",
     sort: "price",
     currentUserObj: [],
-    picture: "https://pecb.com/conferences/wp-content/uploads/2017/10/no-profile-picture.jpg",
+    picture: "",
     bio: ""
     // sortT: "rating"
   }
