@@ -112,7 +112,6 @@ class App extends Component {
   }
 
   logOut = () =>{
-    // debugger
     this.setState({
       currentUserObj: null
     })
@@ -124,7 +123,6 @@ class App extends Component {
   }
 
 handleSort = (value) => {
-  // debugger
     value === "Price"
     ?
     this.setState({sort: "price"})
@@ -133,7 +131,6 @@ handleSort = (value) => {
   }
 
 getSorted(){
-    // debugger
     let value = this.state.sort
     return(
     value === "price"
@@ -144,7 +141,6 @@ getSorted(){
   }
   
   resetList = () =>{
-    debugger
     let allShops = this.state.coffeeShops
     this.setState({
       selectedShop: null,
