@@ -72,19 +72,25 @@ code {
   }
   }
 #letters {
+  max-width: 250px;
   font-style: normal;
   border-color: rgb(15, 9, 63);
   font-stretch: extra-condensed;
   color: rgb(14, 151, 128);
-  /* display: flex */
+}
 
-  
+#letters5 {
+  max-width: 250px;
+  font-style: oblique;
+  border-color: rgb(15, 9, 63);
+  font-stretch: extra-condensed;
+  color: rgb(14, 151, 128);
 }
 #letter {
   font-style: normal;
   font-weight: 700;
   font-family: 'Courier New', Courier, monospace;
-  color: white
+  color: white;
 }
 
 #profileLetters {
@@ -127,6 +133,7 @@ code {
   display: inline-grid;
   margin-bottom: 2rem;
   font-family: 'Courier New', Courier, monospace;
+  min-height: 325px
   
 }
 

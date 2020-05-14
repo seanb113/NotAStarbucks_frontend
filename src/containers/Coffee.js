@@ -10,7 +10,7 @@ const Coffee  = props => {
                 <div className="column" onClick={()=>props.selectShop(props.coffee)}>
                 <div  id="letter2" className="ui segment">
               <img  alt= "" className= "ui image" src={props.coffee.image_url} style={{width: 250, height: 200}}/>
-                {props.coffee.name}<br/> 
+                <div id="letters5">{props.coffee.name}</div> 
                 <div id="letters">
                 Rating: <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className="star icon"></i> <i className={props.coffee.rating === 5 ? "star icon" : ""}></i> <i className={props.coffee.rating === 4.5 ? "star half icon" : ""}></i> <br/> Price:{props.coffee.price}
                 </div>
