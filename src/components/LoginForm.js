@@ -21,8 +21,6 @@ class LoginForm extends React.Component {
       })
     }).then(res => res.json())
     .then(data => {
-      debugger
-      console.log(data)
       if(data.successful){
         let user = data.data
         localStorage.setItem("jwt", data.token)

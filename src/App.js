@@ -65,14 +65,12 @@ class App extends Component {
     }
 
   removeFromFavorites =(shop)=>{
-    debugger
     let newArray = this.state.favorites.filter(s=> s.id !== shop.id)
     this.setState({favorites : newArray})
     this.deleteFavorite(shop)
   }
 
   postFavorite = (coffeeShop) => {
-    debugger
     let userObject = this.state.currentUserObj
     fetch(`http://localhost:4000/users/${userObject.id}/coffeeshops`, {
         method: 'POST',
@@ -89,7 +87,6 @@ class App extends Component {
     }
 
     deleteFavorite = (coffeeShop) => {
-    debugger
     let favorite = this.state.favorites.find(c=>c.id === coffeeShop.id)
     let id = favorite.favorites[0].id
     fetch(`http://localhost:4000/favorites/${id}`, {
@@ -164,7 +161,6 @@ getSorted(){
             
      <Switch>
             <Route path="/coffeeshops/:id" render={(props) => {
-              // debugger
               let id = parseInt(props.match.params.id)
               let selectedShop = this.state.coffeeShops.find(s=>s.id === id)
               return <CoffeeCard

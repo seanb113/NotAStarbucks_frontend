@@ -26,7 +26,6 @@ class SignUp extends Component {
     })
   }).then(res => res.json())
   .then(data => {
-    debugger
     localStorage.setItem("token", data.jwt)
     this.props.loginSubmit(data.user)
   })}

@@ -24,13 +24,11 @@ class UserProfile extends Component {
         }
 
     handleImageChange = e => {
-        debugger
     if (e.target.files[0]) this.setState({ url: e.target.files[0] });
     };
 
 
     uploadImage = () => {
-        debugger
     const formData = new FormData();
     formData.append("profile_pic", this.state.url);
     let id = this.props.user.id
@@ -47,7 +45,7 @@ class UserProfile extends Component {
       )
     }
     handleBioSubmit = () => {
-        debugger
+        
     let id = this.props.user.id
     let bio = this.state.text
     fetch(`http://localhost:4000/users/${id}`, {
