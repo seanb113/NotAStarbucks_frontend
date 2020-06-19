@@ -16,7 +16,6 @@ class UserProfile extends Component {
         })
         }
     editBio = () => {
-        console.log("clicked")
         this.setState({
             editBio: !this.state.editBio,
             text: this.state.bio

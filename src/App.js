@@ -50,7 +50,6 @@ class App extends Component {
     }
     
   recallFavs = (favs)=>{
-    console.log(favs)
     this.setState({
       favorites: favs,
       displayedShops: favs
