@@ -1,5 +1,5 @@
 # Local Joe
-Welcome to the Local Joe app, an app to search and favorite local DC coffee shops. Visit the backend repo [here](https://github.com/seanb113/LocalJoe_backend). Watch the demo [here](https://www.youtube.com/watch?v=cTVPvvqxC2M&t).
+Welcome to the Local Joe app, an app to search and favorite local DC coffee shops. Visit the backend repo [here](https://github.com/seanb113/LocalJoe_backend).
 
 ## Screenshots of App Experience
 
